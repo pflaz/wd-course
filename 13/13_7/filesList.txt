@@ -1,0 +1,8 @@
+cat.jpg
+filesList.txt
+index.js
+node_modules
+package-lock.json
+package.json
+readdir.js
+tekst.txt
