@@ -2,50 +2,68 @@ class Stopwatch extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			running: false
+			running: false,
+			resultsList: [],
+			times: {
+				minutes: 0,
+				seconds: 0,
+				miliseconds: 0	
+			}
 		}
-		this.reset();
-		// this.print(this.times);
 	}
 
-	reset() {
+	reset = () => {
 		this.state.times = {
 			minutes: 0,
 			seconds: 0,
 			miliseconds: 0
 		};
+		this.forceUpdate();
 	}
 
 	render() {
-		console.log(this.state.times);
+		let timesList = [];
+		for (let i = 0; i < this.state.resultsList.length; i++) {
+			timesList.push(<li key={'time_' + i}>{this.state.resultsList[i]}</li>);
+		}
 		return (
-			<div>{this.format(this.state.times)}</div>
+			<div>
+				<nav className={'controls'}>
+					<a href={'#'} className={'button'} id={'start'} onClick={this.start}>Start</a>
+					<a href={'#'} className={'button'} id={'stop'} onClick={this.stop}>Stop</a> 
+					<a href={'#'} className={'button'} id={'reset'} onClick={this.reset}>Reset</a> 
+					<a href={'#'} className={'button'} id={'saveResult'} onClick={this.saveResult}>Save result</a> 
+					<a href={'#'} className={'button'} id={'resetResultsList'} onClick={this.resetResultsList}>Reset results list</a> 
+				</nav>
+				<div className={'stopwatch'}>
+					<div>{this.format(this.state.times)}</div>
+				</div>
+				<div>
+					Results list:
+					<ul className={'results'}>{timesList}</ul>
+				</div>
+			</div>
 		);
 	}
 
-	print() {
-		this.display.innerText = this.format(this.times);
-	}
-
 	format(times) {
-		console.log(times);
-		return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+		return `${this.pad0(times.minutes)}:${this.pad0(times.seconds)}:${this.pad0(Math.floor(times.miliseconds))}`;
 	}
 
-	start() {
+	start = () => {
 		if (!this.state.running) {
 			this.state.running = true;
 			this.watch = setInterval( () => this.step(), 10);
 		}
 	}
 
-	step() {
+	step = () => {
 		if (!this.state.running) return;
 		this.calculate();
-		this.print();
+		this.forceUpdate();
 	}
 
-	calculate() {
+	calculate = () => {
 		this.state.times.miliseconds += 1;
 		if (this.state.times.miliseconds >= 100) {
 			this.state.times.seconds += 1;
@@ -57,60 +75,36 @@ class Stopwatch extends React.Component {
 		}
 	}
 
-	stop() {
+	stop = () => {
 		this.state.running = false;
 		clearInterval(this.watch);
 	}
 
-	saveResult() {
-		resultsList.addResult(this.format(this.state.times));
+	saveResult = () => {
+		this.addResult(this.format(this.state.times));
 	}
 
+	addResult = (result) => {
+		this.state.resultsList.push(result);
+		this.forceUpdate();
+	}	
+
+	pad0(value) {
+		let result = value.toString();
+		if (result.length < 2) {
+			result = '0' + result;
+		}
+		return result;
+	}
+
+	resetResultsList = () => {
+		this.state.resultsList = [];
+		this.forceUpdate();
+	}
 }
 
-class ResultsList {
-	constructor(display) {
-		this.display = display;
-		this.reset();
-	}
-
-	reset() {
-		this.display.innerText = "";
-	}
-
-	addResult(result) {
-		let li = document.createElement("li");
-		li.appendChild(document.createTextNode(result));
-		this.display.appendChild(li);
-	}
-}
-
-function pad0(value) {
-	let result = value.toString();
-	if (result.length < 2) {
-		result = '0' + result;
-	}
-	return result;
-}
-
-// const stopwatch = new Stopwatch(
-// 	document.querySelector('.stopwatch')
-// 	);
 
 ReactDOM.render(<Stopwatch />, document.getElementById('stopwatch'));
 
-const resultsList = new ResultsList(
-	document.querySelector('.results')
-	);
 
-let startButton = document.getElementById('start');
-startButton.addEventListener('click', () => stopwatch.start());
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => stopwatch.stop());
-let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => {stopwatch.reset(); stopwatch.print();});
-let saveResultButton = document.getElementById('saveResult');
-saveResultButton.addEventListener('click', () => stopwatch.saveResult());
-let resetResultsListButton = document.getElementById('resetResultsList');
-resetResultsListButton.addEventListener('click', () => resultsList.reset());
 
