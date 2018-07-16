@@ -1,0 +1,38 @@
+body {
+	background-color: #dddddd;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.container form label{
+	padding: 10px;
+}
+
+.container form input {
+	background-color: #eeeeee;
+}
+
+.userListContainer, .userContainer {
+	padding: 10px;
+}
+
+.userContainer {
+	margin: 5px;
+	border-radius: 10px;
+	border-width: 1px;
+	border-style: dashed;
+	transition: 0.3s;
+}
+.userContainer:hover {
+	background-color: #eeeeee;
+}
+
+.userContainer a {
+	text-decoration: none;
+	color: green;
+	margin: 15px;
+}
