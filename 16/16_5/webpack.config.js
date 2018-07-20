@@ -28,8 +28,8 @@ module.exports = (env) => {
 				}
 			]
 		},
-/*		optimization: {
+		optimization: {
 			minimize: false
-		}*/
+		}
 	}
 };
