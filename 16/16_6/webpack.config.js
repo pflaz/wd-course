@@ -44,6 +44,6 @@ module.exports = (env) => {
 				}
 			]
 		},
-		plugins: plugins
+		plugins: plugins 
 	}
 };
