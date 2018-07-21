@@ -86,6 +86,17 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/css-loader/index.js?!./src/components/TodoList.css":
+/*!*************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--5-1!./src/components/TodoList.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"._746Le9XnRlHRT9rCtI51J {\\r\\n    border-style: solid;\\r\\n    border-width: 1px;\\r\\n    border-radius: 10px;\\r\\n    padding: 10px;\\r\\n}\\r\\n\\r\\n._1VZISDZCuWkbKr55vt3dYH {\\r\\n    transition-duration: 0.2s;\\r\\n    padding: 5px;\\r\\n}\\r\\n\\r\\n._1VZISDZCuWkbKr55vt3dYH:hover {\\r\\n    background-color: cadetblue;\\r\\n    border-radius: 5px;\\r\\n}\", \"\"]);\n\n// exports\nexports.locals = {\n\t\"TodoList\": \"_746Le9XnRlHRT9rCtI51J\",\n\t\"task\": \"_1VZISDZCuWkbKr55vt3dYH\"\n};\n\n//# sourceURL=webpack:///./src/components/TodoList.css?./node_modules/css-loader??ref--5-1");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js?!./src/containers/App.css":
 /*!********************************************************************!*\
   !*** ./node_modules/css-loader??ref--5-1!./src/containers/App.css ***!
@@ -456,6 +467,17 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 
 /***/ }),
 
+/***/ "./src/components/TodoList.css":
+/*!*************************************!*\
+  !*** ./src/components/TodoList.css ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../node_modules/css-loader??ref--5-1!./TodoList.css */ \"./node_modules/css-loader/index.js?!./src/components/TodoList.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./src/components/TodoList.css?");
+
+/***/ }),
+
 /***/ "./src/components/TodoList.js":
 /*!************************************!*\
   !*** ./src/components/TodoList.js ***!
@@ -464,7 +486,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n\tvalue: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar TodoList = function TodoList(props) {\n    return _react2.default.createElement(\n        'div',\n        null,\n        props.taskList.map(function (task, i) {\n            return _react2.default.createElement(\n                'div',\n                { key: task.id },\n                task.id,\n                ' - ',\n                task.text\n            );\n        })\n    );\n};\nexports.default = TodoList;\n\n//# sourceURL=webpack:///./src/components/TodoList.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _TodoList = __webpack_require__(/*! ./TodoList.css */ \"./src/components/TodoList.css\");\n\nvar _TodoList2 = _interopRequireDefault(_TodoList);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar TodoList = function TodoList(props) {\n    return _react2.default.createElement(\n        'div',\n        { className: _TodoList2.default.TodoList },\n        props.taskList.map(function (task, i) {\n            return _react2.default.createElement(\n                'div',\n                { className: _TodoList2.default.task, key: task.id },\n                task.text\n            );\n        })\n    );\n};\nexports.default = TodoList;\n\n//# sourceURL=webpack:///./src/components/TodoList.js?");
 
 /***/ }),
 
