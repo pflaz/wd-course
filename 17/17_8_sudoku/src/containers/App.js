@@ -2,6 +2,7 @@ import React from 'react';
 import Board from './Board';
 import Navigation from './Navigation';
 import sudoku from 'sudoku-umd';
+import style from './App.css';
 
 class App extends React.Component{
     constructor(props) {
@@ -15,9 +16,10 @@ class App extends React.Component{
 
     render() {
         return(
-            <div>
+            <div className={style.mainAppContainer}>
                 <div>
                     <Board 
+                        initialBoard={this.state.initialBoard}
                         board={this.state.board}
                         handleTileChange={this.handleTileChange}
                     />
@@ -36,6 +38,7 @@ class App extends React.Component{
 
     componentDidMount() {
         this.handleNewGame();
+        console.log('mount');
     }
 
     handleCheck = () => {
@@ -58,6 +61,10 @@ class App extends React.Component{
 
     handleSolve = () => {
         const solution = sudoku.solve(this.state.board);
+        if (!solution) {
+            alert('This sudoku IS NOT solvable.');
+            return;
+        }
         this.setState({
             board: solution
         })
@@ -70,7 +77,6 @@ class App extends React.Component{
     }
 
     handleTileChange = (tileNumber, value) => {
-        console.log(value);
         if (value == '' || (value >= '0' && value <= '9')) {
             this.changeValueOnBoardPosition(tileNumber, value);
         }

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Hanalei+Fill');
+
+.navigation {
+    padding: 15px;
+}
+
+.navigation button {
+    display: inline-block;
+    background-color: #92D269;
+    color: #050505;
+    border-color: #B7E897;
+    height: 30px;
+    border: 1px solid silver;
+    text-align: center;
+    font-size: 14px;
+    line-height: 25px;
+    padding: 2px 10px;
+    margin: 15px;
+    border-radius: 10px;
+    font-family: 'Hanalei Fill', cursive;
+}
+
+.navigation button:hover {
+    background-color: #EBFBE0;
+    border-color: #92D269;
+    color: #967328;
+}

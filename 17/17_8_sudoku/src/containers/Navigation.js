@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './Navigation.css';
 
 class Navigation extends React.Component{
     constructor(props) {
@@ -8,7 +9,7 @@ class Navigation extends React.Component{
 
     render() {
         return(
-            <div>
+            <div className={style.navigation}>
                 <button type="button" onClick={this.props.handleCheck}>Check</button>
                 <button type="button" onClick={this.props.handleNewGame}>New game</button>
                 <button type="button" onClick={this.props.handleSolve}>Solve</button>

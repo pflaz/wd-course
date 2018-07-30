@@ -13,6 +13,7 @@ class Board extends React.Component{
         let rows = [];
         let tileNumber = -1;
         let tileValue;
+        let tileReadOnly;
         for (let rowNumber = 0; rowNumber < grid.length; rowNumber++) {
             const row = grid[rowNumber];
 
@@ -23,7 +24,12 @@ class Board extends React.Component{
                 if (tileValue == '.') {
                     tileValue = '';
                 }
-                rows.push(<Tile key={tileNumber} number={tileNumber} value={tileValue} onChange={this.props.handleTileChange} />);
+                if (this.props.initialBoard.charAt(tileNumber) != '.') {
+                    tileReadOnly = true;
+                } else {
+                    tileReadOnly = false;
+                }
+                rows.push(<Tile key={tileNumber} number={tileNumber} value={tileValue} readOnly={tileReadOnly} onChange={this.props.handleTileChange} />);
             }
             result.push(
             <div key={rowNumber}>{rows}</div>
