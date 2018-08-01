@@ -16,7 +16,6 @@ class UsersService {
     }
 
     removeUser(userId) {
-        console.log(this.users);
         this.users = this.users.filter(user => user.id !== userId);
     }
 }

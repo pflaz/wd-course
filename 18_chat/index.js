@@ -23,9 +23,6 @@ io.on('connection', function(socket) {
             id: socket.id,
             name
         });
-
-        console.log(name + ' joined');
-
         io.emit('update', {
             users: userService.getAllUsers()
         });

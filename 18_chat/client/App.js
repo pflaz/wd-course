@@ -41,7 +41,6 @@ class App extends Component {
     }
 
     renderLayout() {
-        console.log(this.state.users);
         return(
             <div className={styles.App}>
                 <div className={styles.AppHeader}>
