@@ -22,7 +22,7 @@ function editComment(id, text) {
     }
 }
 
-function removeComment(id) {
+export function removeComment(id) {
     return {
         type: REMOVE_COMMENT,
         id
@@ -36,7 +36,7 @@ export function thumbUpComment(id) {
     }
 }
 
-function thumnDownComment(id) {
+export function thumbDownComment(id) {
     return {
         type: THUMB_DOWN_COMMENT,
         id
