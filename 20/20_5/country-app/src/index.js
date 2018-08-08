@@ -7,6 +7,7 @@ import routes from './routes';
 
 import DevTools from './store/DevTools';
 import { getCountries } from './actions/actions-countries';
+import './country.css';
 
 store.dispatch(getCountries());
 render(
