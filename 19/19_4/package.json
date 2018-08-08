@@ -1,0 +1,16 @@
+{
+  "name": "19_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "actions.js",
+  "dependencies": {
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
