@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/nodeappdatabase', {
+// mongoose.connect('mongodb://localhost:27017/nodeappdatabase', {
+mongoose.connect('mongodb://pawars-test:passwordtest1@ds235251.mlab.com:35251/pawars-test', {
     // useMongoClient: true,
     useNewUrlParser: true
 });
