@@ -1,0 +1,19 @@
+.container {
+  max-width: 980px;
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 2px;
+}
